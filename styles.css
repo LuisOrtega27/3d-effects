@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(4, 6, 8);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.cube{
+    margin: 150px auto;
+    position: relative;
+    transform: perspective(700px) rotateX(-30deg) rotateY(-30deg);
+    transform-style: preserve-3d;
+    transition: all 5s linear;
+    animation: rotateLeft 10s linear infinite;
+}
+.cube:hover{
+    transform: perspective(700px) rotateX(-30deg) rotateY(-360deg);   
+}
+
+
+.cube, .side{
+    width: 200px;
+    height: 200px;
+    /* background: #0002; */
+}
+
+.side{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.side:nth-child(1){
+    background: radial-gradient(#28e, rgb(4, 6, 8));
+    transform: translateZ(99px);
+}
+
+
+.side:nth-child(2){
+    background: radial-gradient(#28e, rgb(4, 6, 8));
+    transform: rotateX(-90deg) translateZ(-100px);
+
+}
+
+
+/* This one is the shadow */
+.side:nth-child(3){ 
+    background:  #28e;
+    transform: rotateX(-90deg) translateZ(250px);
+    filter: blur(20px);
+    box-shadow: 0px 0px 20px #28e, 0px 0px 20px #28e, 0px 0px 20px #28e, 0px 0px 20px #28e;
+}
+
+
+.side:nth-child(4){
+    background: radial-gradient(#28e, rgb(4, 6, 8));
+    transform: rotateX(0deg) translateZ(-99px);
+}
+
+
+.side:nth-child(5){
+    background: radial-gradient(#28e, rgb(4, 6, 8));
+    transform: rotateY(-90deg) translateZ(-99px);
+}
+
+.side:nth-child(6){
+    background: radial-gradient(#28e, rgb(4, 6, 8));
+    transform: rotateY(-90deg) translateZ(99px);
+}
+
+
+
+@keyframes rotateLeft {
+    from{
+        transform: perspective(700px) rotateX(-30deg) rotateY(0deg);
+    }
+    to{
+        transform: perspective(700px) rotateX(-30deg) rotateY(-360deg);
+    }
+}

@@ -5,7 +5,7 @@
 }
 
 body{
-    background: rgb(4, 6, 8);
+    background: #1e272e;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -38,23 +38,17 @@ body{
     position: absolute;
     top: 0;
     left: 0;
+    background:  linear-gradient(#28e8, #1e272e);
 }
 
 .side:nth-child(1){
-    /* background: radial-gradient(#28e, rgb(4, 6, 8)); */
-    background-color:#28e;
-    background: url('./sources/bg-4.jpg');
-    background-size: cover;
-
     transform: translateZ(120px);
     animation: beat1 4s ease-in-out infinite;
 }
 
 
 .side:nth-child(2){
-    /* background: radial-gradient(#28e, rgb(4, 6, 8)); */
-    background: url('./sources/bg-0.jpg');
-    background-size: cover;
+    background:  radial-gradient(#28e6, #28e8, #1e272e);
 
     transform: rotateX(-90deg) translateZ(-120px);
     animation: beat2 4s ease-in-out infinite;
@@ -72,9 +66,7 @@ body{
 
 
 .side:nth-child(4){
-    /* background: radial-gradient(#28e, rgb(4, 6, 8)); */
-    background: url('./sources/bg-1.jpg');
-    background-size: cover;
+    /* background: linear-gradient(#28e, #1e272e); */
 
     transform: rotateX(0deg) translateZ(-120px);
     animation: beat4 4s ease-in-out infinite;
@@ -83,19 +75,11 @@ body{
 
 
 .side:nth-child(5){
-    /* background: radial-gradient(#28e, rgb(4, 6, 8)); */
-    background: url('./sources/bg-2.jpg');
-    background-size: cover;
-
     transform: rotateY(-90deg) translateZ(-120px);
     animation: beat5 4s ease-in-out infinite;
 }
 
 .side:nth-child(6){
-    /* background: radial-gradient(#28e, rgb(4, 6, 8)); */
-    background: url('./sources/bg-3.jpg');
-    background-size: cover;
-
     transform: rotateY(-90deg) translateZ(120px);
     animation: beat6 4s ease-in-out infinite;
 
@@ -188,7 +172,7 @@ body{
 
 
 
-/* Actualisation! 
+/* Actualization! 
 
     it was not that much
 */
@@ -201,14 +185,19 @@ body{
 
 .carrousel{
     position: relative;
+
     height: 150px;
     width: 200px;
     margin: auto;
     /* background-color: #f804; */
+
     transform: perspective(800px) rotateX(0deg) rotateY(0deg);
     transform-style: preserve-3d;
+
     transition: transform 0.6s ease-in-out;
 }
+
+
 .segment{
     position: absolute;
     width: 100%;
@@ -216,59 +205,59 @@ body{
     background-color: #28e5;
 }
 
+
 .segment:nth-child(1){
     transform: translateZ(250px);
-    background: url('./sources/bg-0.jpg');
-    background-color: #28e;
+
+    background: url('https://th.bing.com/th/id/R.18efe02dabbf72680598f33549ab15dd?rik=9WK7HhkQHv2Mjw&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f35800000%2f-Wallpapers-Full-HD-random-35881387-1920-1080.jpg&ehk=JFI8VRjN%2fda1ccLDV74esz4jMg5E6Dqp90PgSR6Gg1M%3d&risl=&pid=ImgRaw&r=0');
     background-size: cover;
 }
 
 .segment:nth-child(2){
     transform: rotateY(45deg) translateZ(250px);
-    background: url('./sources/bg-1.jpg');
-    background-color: #28e;
-    background-size: cover;
-}
+    
+    background: url('https://th.bing.com/th/id/OIP.oevbolwSrvjJQcDSNFdOYAHaEo?pid=ImgDet&rs=1');
+    background-size: cover;}
 
 .segment:nth-child(3){
     transform: rotateY(90deg) translateZ(250px);
-    background: url('./sources/bg-2.jpg');
-    background-color: #28e;
+    
+    background: url('https://4.bp.blogspot.com/-JTVZ2ajkvrU/UiIb8LLrIII/AAAAAAAAGb4/ioF8FtLFzR0/s1600/1307306470-nature_wallpaper_hd_hd_nature_3.jpg');
     background-size: cover;
 }
 
 .segment:nth-child(4){
     transform: rotateY(135deg) translateZ(250px);
-    background: url('./sources/bg-3.jpg');
-    background-color: #28e;
+    
+    background: url('https://th.bing.com/th/id/R.6cc3d9234c2b85a512c1901a1877337a?rik=2cz%2fcRb%2fvnaOtQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-fpEFUD90X9o%2fTwg7Tt2NZSI%2fAAAAAAAAA2s%2fU74mr-bYVMA%2fs1600%2fhd%2bwallpapers%2b%2525287%252529.jpg&ehk=VREtQSvcn5VgI2ybfOGkFHL7QLkx0fRsyNsGwp5RWEA%3d&risl=&pid=ImgRaw&r=0');
     background-size: cover;
 }
 
 .segment:nth-child(5){
     transform: rotateY(180deg) translateZ(250px);
-    background: url('./sources/bg-4.jpg');
-    background-color: #28e;
+    
+    background: url('https://th.bing.com/th/id/R.1876ba684c6d958ec020ecc8138a85a3?rik=lG6lkfBqwDfmjA&riu=http%3a%2f%2f2.bp.blogspot.com%2f-f7KM8o6GqAE%2fUWAwwCbPLDI%2fAAAAAAAAAHg%2fG5jRPdg8vn8%2fs1600%2f9728.jpg&ehk=yYLkkT8q3XTU2F8j9xnUMIGcr6Q2BxGyEx1S0d2qgxE%3d&risl=&pid=ImgRaw&r=0');
     background-size: cover;
 }
 
 .segment:nth-child(6){
     transform: rotateY(225deg) translateZ(250px);
-    background: url('./sources/bg-5.jpg');
-    background-color: #28e;
+    
+    background: url('https://www.bing.com/th/id/OIP.YvEnn2iyjKj3czTH1wTNIgHaEo?pid=ImgDet&rs=1');
     background-size: cover;
 }
 
 .segment:nth-child(7){
     transform: rotateY(270deg) translateZ(250px);
-    background: url('./sources/bg-6.jpg');
-    background-color: #28e;
+    
+    background: url('https://th.bing.com/th/id/R.2415d5e51afc71da7db3bdb32d02c06c?rik=cHFS7XThexPWOA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fd%2fb%2f8%2f679723.jpg&ehk=WwWMJblmTtkRjqMLAWq%2buW5P4yA6HT1zZWvTxyA2ufU%3d&risl=&pid=ImgRaw&r=0');
     background-size: cover;
 }
 
 .segment:nth-child(8){
     transform: rotateY(315deg) translateZ(250px);
-    background: url('./sources/bg-7.jpg');
-    background-color: #28e;
+    
+    background: url('https://th.bing.com/th/id/R.6fcc4b20446ac1d93141454f59288751?rik=MABo%2baasHQ3wCQ&pid=ImgRaw&r=0');
     background-size: cover;
 }
 
@@ -324,7 +313,7 @@ body{
 }
 /* por hoy el codigo me derroto */
 
-/* Actualisation!!
+/* Actualization!!
 
     pos no era tan dificil
 */

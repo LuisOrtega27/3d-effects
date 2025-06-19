@@ -1,0 +1,154 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1e272e;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.cube {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 300px;
+  position: relative;
+  transform: perspective(700px) rotateX(-30deg) rotateY(-30deg);
+  transform-style: preserve-3d;
+  transition: transform 5s linear;
+  animation: rotateLeft 10s linear infinite;
+}
+
+.cube,
+.side {
+  width: 150px;
+  height: 150px;
+
+  transition: all 2s ease;
+}
+
+.side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(#28e8, #1e272e);
+}
+
+.side:nth-child(1) {
+  transform: translateZ(120px);
+  animation: beat1 4s ease-in-out infinite;
+}
+
+.side:nth-child(2) {
+  background: radial-gradient(#28e6, #28e8, #1e272e);
+
+  transform: rotateX(-90deg) translateZ(-120px);
+  animation: beat2 4s ease-in-out infinite;
+}
+
+/* This one is the shadow */
+.side:nth-child(3) {
+  background: #28e;
+  transform: rotateX(-90deg) translateZ(250px);
+  filter: blur(20px);
+  box-shadow: 0px 0px 20px #28e, 0px 0px 20px #28e, 0px 0px 20px #28e,
+    0px 0px 20px #28e;
+}
+
+.side:nth-child(4) {
+  /* background: linear-gradient(#28e, #1e272e); */
+
+  transform: rotateX(0deg) translateZ(-120px);
+  animation: beat4 4s ease-in-out infinite;
+}
+
+.side:nth-child(5) {
+  transform: rotateY(-90deg) translateZ(-120px);
+  animation: beat5 4s ease-in-out infinite;
+}
+
+.side:nth-child(6) {
+  transform: rotateY(-90deg) translateZ(120px);
+  animation: beat6 4s ease-in-out infinite;
+}
+
+@keyframes rotateLeft {
+  from {
+    transform: perspective(700px) rotateX(-35deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(700px) rotateX(-35deg) rotateY(-360deg);
+  }
+}
+
+/* No better idea than to make an individual animation for each side */
+/* No se me ocurrio mejor idea que hacer una animacion para cada cara */
+
+@keyframes beat1 {
+  0% {
+    transform: translateZ(80px);
+  }
+  50% {
+    transform: translateZ(120px);
+  }
+  100% {
+    transform: translateZ(80px);
+  }
+}
+
+@keyframes beat2 {
+  0% {
+    transform: rotateX(-90deg) translateZ(-80px);
+  }
+  50% {
+    transform: rotateX(-90deg) translateZ(-120px);
+  }
+  100% {
+    transform: rotateX(-90deg) translateZ(-80px);
+  }
+}
+
+@keyframes beat4 {
+  0% {
+    transform: rotateY(0deg) translateZ(-80px);
+  }
+  50% {
+    transform: rotateY(0deg) translateZ(-120px);
+  }
+  100% {
+    transform: rotateY(0deg) translateZ(-80px);
+  }
+}
+
+@keyframes beat5 {
+  0% {
+    transform: rotateY(-90deg) translateZ(-80px);
+  }
+  50% {
+    transform: rotateY(-90deg) translateZ(-120px);
+  }
+  100% {
+    transform: rotateY(-90deg) translateZ(-80px);
+  }
+}
+
+@keyframes beat6 {
+  0% {
+    transform: rotateY(-90deg) translateZ(80px);
+  }
+  50% {
+    transform: rotateY(-90deg) translateZ(120px);
+  }
+  100% {
+    transform: rotateY(-90deg) translateZ(80px);
+  }
+}
+
+/* All of that only for a 3D cube...*/

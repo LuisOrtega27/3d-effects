@@ -1,54 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS 3D</title>
 
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./css/cube.css" />
+    <link rel="stylesheet" href="./css/pokemonCard.css" />
+    <link rel="stylesheet" href="./css/carrousel.css" />
 
-    <script src="./scripts.js" defer></script>
-    
-</head>
-<body>
-
+    <script src="./js/scripts.js" defer></script>
+    <script src="./js/pokemonCard.js" defer></script>
+  </head>
+  <body>
     <h1 class="title">Efectos 3D</h1>
 
+    <!-- ============================ CUBE ============================ -->
     <div class="cube">
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
     </div>
 
-<div class="carrousel-container">
-
-
-
-    <div class="carrousel">
-
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-
+    <!-- ============================ POKEMON CARD ============================ -->
+    <div class="pokemonCardSection">
+      <h2>Pokemon card</h2>
+      <div class="container" id="imgContainer">
+        <picture class="imgPic">
+          <img
+            class="backgroundImg"
+            id="3DEffect"
+            src="./assets/img/pikachuCard.jpg"
+            alt="QR"
+          />
+          <img
+            class="characterImg"
+            src="./assets/img/pikachu_klipartz.png"
+            alt="Pikachu"
+          />
+        </picture>
+      </div>
     </div>
 
-    <div class="controls">
+    <!-- ============================ CARROUSEL ============================ -->
 
-        <button class="btn btn-l"><span class="btn-icon icon-l"><<</span></button>
-        <button class="btn btn-r"><span class="btn-icon icon-r">>></span></button>
-        
+    <div class="carrousel-container">
+      <div class="carrousel">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-l">
+          <span class="btn-icon icon-l"><<</span>
+        </button>
+        <button class="btn btn-r">
+          <span class="btn-icon icon-r">>></span>
+        </button>
+      </div>
     </div>
-
-</div>
-    
-</body>
+  </body>
 </html>

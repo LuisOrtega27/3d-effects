@@ -1,0 +1,75 @@
+:root {
+  --x: 0deg;
+  --y: 0deg;
+  --delay: 0.1s;
+}
+.pokemonCardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  gap: 50px;
+}
+.pokemonCardSection h2 {
+  font-size: 2.5em;
+}
+.container {
+  perspective: 1000px;
+  border-radius: 25px;
+  width: fit-content;
+}
+.imgPic {
+  position: relative;
+  display: inline-block;
+  height: 560px;
+  width: 400px;
+  transform: rotateY(var(--x)) rotateX(var(--y));
+  transition: transform var(--delay) ease;
+  cursor: pointer;
+  /* overflow: hidden; */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.imgPic::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, #000);
+  opacity: 0;
+  border-radius: 25px;
+  transition: top 0.3s ease, opacity 0.3s ease;
+}
+.imgPic:hover::before {
+  opacity: 1;
+}
+
+.backgroundImg {
+  width: 100%;
+  border-radius: 25px;
+  pointer-events: none;
+  outline: solid 1px #000;
+}
+
+.characterImg {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 80%;
+  margin: auto;
+  filter: drop-shadow(5px 5px 5px #0000);
+  transform: translateZ(0px) scale(0.5);
+  transition: top 0.3s ease, transform 0.3s ease, filter 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 0;
+}
+.imgPic:hover .characterImg {
+  top: 0;
+  filter: drop-shadow(10px 10px 10px #000);
+  transform: translateZ(50px);
+  opacity: 1;
+}

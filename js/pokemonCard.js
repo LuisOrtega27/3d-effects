@@ -1,60 +1,32 @@
-// Root (para las variables css)
-let root = document.querySelector(":root");
-// Container de Imagen
-let imgContainer = document.getElementById("imgContainer");
-// Imagen
-let img = document.querySelector(".imgPic");
-// Distrancia entre la imagen y la esquina del navegador
-let rect = img.getBoundingClientRect();
+"use strict";
 
-let x;
-let y;
+const cards = document.querySelectorAll(".cardsShowcase .card");
 
-imgContainer.addEventListener("mousemove", (eve) => {
-  // Obtener coordenadas X & Y del mouse
+function handleMousemove(event) {
+  const card = event.target.children[0];
+  const cardYCenter = event.target.clientHeight / 2;
+  let mouseYCoord = event.offsetY;
+  const cardXCenter = event.target.clientWidth / 2;
+  let mouseXCoord = event.offsetX;
 
-  x = eve.clientX - rect.x;
-  y = eve.clientY - rect.y;
+  let rotateInY = cardYCenter - mouseYCoord;
+  let rotateInX = mouseXCoord - cardXCenter;
+  const REDUCER = 6;
+  card.style.setProperty(
+    "transform",
+    `rotateY(${rotateInX / REDUCER}deg) rotateX(${rotateInY / REDUCER}deg)`
+  );
+  // card.style.setProperty("transform", `rotateX(${rotateInY / REDUCER}deg)`);
+}
 
-  // Reductor para que la rotacion no se vaya de Madre.
-  let reductor = 8;
+function handleMouseleave(event) {
+  event.target.children[0].style.setProperty(
+    "transform",
+    "rotateY(0deg) rotateX(0deg)"
+  );
+}
 
-  // Encontrar el Centro Horizontal de la imagen
-  let centroHorizontal = img.clientWidth / 2;
-  let numX = img.clientWidth / 2;
-
-  // Encontrar el Centro Vertical de la imagen
-  let centroVertical = img.clientHeight / 2;
-  let numY = img.clientHeight / 2;
-
-  // ========================= Rotacion Horizontal =========================
-  if (x < centroHorizontal) {
-    // Si el cursor esta del lado Izquierdo de la imagen, el numero es negativo
-    numX = x - numX; // Negativo
-    // rota a la Izquierda
-    root.style.setProperty("--x", `${Math.round(numX / reductor)}deg`);
-  } else {
-    // Si el cursor esta del lado Derecho de la imagen, el numero es positivo
-    numX = Math.abs(numX - x); // Positivo
-    // rota a la Derecha
-    root.style.setProperty("--x", `${Math.round(numX / reductor)}deg`);
-  }
-
-  // ========================= Rotacion Vertical =========================
-  if (y > centroVertical) {
-    // Si el cursor esta del lado Izquierdo de la imagen, el numero es negativo
-    numY = y - numY; // Negativo
-    // rota a la Izquierda
-    root.style.setProperty("--y", `-${Math.round(numY / reductor)}deg`);
-  } else {
-    // Si el cursor esta del lado Derecho de la imagen, el numero es positivo
-    numY = numY - y; // Positivo
-    // rota a la Derecha
-    root.style.setProperty("--y", `${Math.round(numY / reductor)}deg`);
-  }
-});
-
-imgContainer.addEventListener("mouseleave", () => {
-  root.style.setProperty("--x", `${0}deg`);
-  root.style.setProperty("--y", `${0}deg`);
+cards.forEach((card) => {
+  card.addEventListener("mousemove", handleMousemove);
+  card.addEventListener("mouseleave", handleMouseleave);
 });

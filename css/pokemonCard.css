@@ -1,8 +1,9 @@
-:root {
-  --x: 0deg;
-  --y: 0deg;
-  --delay: 0.1s;
+.pokemonCardSection * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
 .pokemonCardSection {
   display: flex;
   flex-direction: column;
@@ -13,63 +14,74 @@
 .pokemonCardSection h2 {
   font-size: 2.5em;
 }
-.container {
-  perspective: 1000px;
-  border-radius: 25px;
-  width: fit-content;
+.cardsShowcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
 }
-.imgPic {
+.card {
   position: relative;
-  display: inline-block;
-  height: 560px;
-  width: 400px;
-  transform: rotateY(var(--x)) rotateX(var(--y));
-  transition: transform var(--delay) ease;
-  cursor: pointer;
-  /* overflow: hidden; */
+  width: 300px;
+  aspect-ratio: 9/12;
+  perspective: 1000px;
+  z-index: 0;
+}
+
+.card3DEffect {
   perspective: 1000px;
   transform-style: preserve-3d;
-}
-.imgPic::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(transparent, #000);
-  opacity: 0;
-  border-radius: 25px;
-  transition: top 0.3s ease, opacity 0.3s ease;
-}
-.imgPic:hover::before {
-  opacity: 1;
-}
-
-.backgroundImg {
-  width: 100%;
-  border-radius: 25px;
   pointer-events: none;
-  outline: solid 1px #000;
+  transition: transform 0.1s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 1)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 25px;
+  }
+  .card:hover &::before {
+    opacity: 1;
+  }
+
+  & > .cardBackground {
+    width: 100%;
+    z-index: 1;
+    border-radius: 25px;
+  }
+
+  & > .cardCharacter {
+    height: 80%;
+    max-width: 90%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events: none;
+    z-index: 3;
+    transition: transform 0.6s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(40px) translateZ(0px);
+  }
+  .card:hover & > .cardCharacter {
+    opacity: 1;
+    transform: translateY(0px) translateZ(30px);
+  }
 }
 
-.characterImg {
-  position: absolute;
-  top: 0%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-height: 80%;
-  margin: auto;
-  filter: drop-shadow(5px 5px 5px #0000);
-  transform: translateZ(0px) scale(0.5);
-  transition: top 0.3s ease, transform 0.3s ease, filter 0.3s ease,
-    opacity 0.3s ease;
-  opacity: 0;
-}
-.imgPic:hover .characterImg {
-  top: 0;
-  filter: drop-shadow(10px 10px 10px #000);
-  transform: translateZ(50px);
-  opacity: 1;
-}
+/* .card::before {
+
+  );
+  pointer-events: none;
+} */
